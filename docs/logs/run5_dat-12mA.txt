@@ -1,0 +1,340 @@
+hist
+saved sessions (newest first):
+  [0] boot #4: 162 commands (162 stored), PCIe ACK (this boot), first at 93915243 us
+  [1] boot #3: 209 commands (203 stored), first at 52196542 us
+  [2] boot #2: 161 commands (161 stored), PCIe ACK, first at 175272376 us
+  [3] boot #1: 123 commands (123 stored), first at 127671322 us
+'hist N' prints one
+> 
+===== hist 0 =====
+hist 0
+boot #4: 162 commands, 162 stored, config pcie_ack=1 pcie_1v2=0 sd_mode=1 check_crc=1 dat3_pullup=1
+    0   93915.243ms  CMD0  GO_IDLE_STATE          arg=00000000  -> (none)  st=idle  clk=379kHz  dph=0
+    1   93915.450ms  CMD8  SEND_IF_COND           arg=000001aa  -> R7  000001aa  st=idle  clk=380kHz
+    2   93915.806ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=380kHz
+    3   93916.161ms ACMD41 SD_SEND_OP_COND        arg=51100000  -> R3  00ff8000  st=idle  clk=379kHz
+    4   93917.544ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+    5   93917.902ms ACMD41 SD_SEND_OP_COND        arg=51100000  -> R3  00ff8000  st=idle  clk=379kHz
+    6   93919.262ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+    7   93919.619ms ACMD41 SD_SEND_OP_COND        arg=51100000  -> R3  c0ff8000  st=ready  clk=379kHz
+    8   93919.975ms  CMD2  ALL_SEND_CID           arg=00000000  -> R2  st=ident  clk=379kHz
+    9   93920.564ms  CMD3  SEND_RELATIVE_ADDR     arg=00000000  -> R6  db810500  st=stby  clk=379kHz
+   10   93920.919ms  CMD9  SEND_CSD               arg=db810000  -> R2  st=stby  clk=379kHz
+   11   93921.406ms  CMD7  SELECT_CARD            arg=db810000  -> R1b 00000700  st=tran  clk=23.5MHz
+   12   93921.448ms  CMD16 SET_BLOCKLEN           arg=00000200  -> R1  00000900  st=tran  clk=23.5MHz
+   13   93921.487ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=23.5MHz
+   14   93921.527ms ACMD42 SET_CLR_CARD_DETECT    arg=00000000  -> R1  00000920  st=tran  clk=23.5MHz
+   15   93921.567ms  CMD13 SEND_STATUS            arg=db810000  -> R1  00000900  st=tran  clk=23.5MHz
+   16   93921.612ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=23.5MHz
+   17   93921.656ms ACMD51 SEND_SCR               arg=00000000  -> R1  00000920 +DAT0 block  st=tran  clk=23.5MHz  dph=0
+   18   93921.718ms  CMD6  SWITCH_FUNC            arg=00ffffff  -> R1  00000900 +DAT0 block  st=tran  clk=23.5MHz  dph=0
+   19   94241.155ms  CMD0  GO_IDLE_STATE          arg=00000000  -> (none)  st=idle  clk=379kHz  dph=1
+   20   94241.360ms  CMD8  SEND_IF_COND           arg=000001aa  -> R7  000001aa  st=idle  clk=379kHz
+   21   94241.715ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+   22   94242.070ms ACMD41 SD_SEND_OP_COND        arg=51100000  -> R3  00ff8000  st=idle  clk=379kHz
+   23   94243.435ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+   24   94243.793ms ACMD41 SD_SEND_OP_COND        arg=51100000  -> R3  00ff8000  st=idle  clk=379kHz
+   25   94245.863ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=380kHz
+   26   94246.218ms ACMD41 SD_SEND_OP_COND        arg=51100000  -> R3  c0ff8000  st=ready  clk=379kHz
+   27   94246.573ms  CMD2  ALL_SEND_CID           arg=00000000  -> R2  st=ident  clk=379kHz
+   28   94247.162ms  CMD3  SEND_RELATIVE_ADDR     arg=00000000  -> R6  db810500  st=stby  clk=379kHz
+   29   94247.518ms  CMD9  SEND_CSD               arg=db810000  -> R2  st=stby  clk=379kHz
+   30   94248.140ms  CMD7  SELECT_CARD            arg=db810000  -> R1b 00000700  st=tran  clk=23.5MHz
+   31   94248.183ms  CMD16 SET_BLOCKLEN           arg=00000200  -> R1  00000900  st=tran  clk=22.2MHz
+   32   94248.222ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=22.2MHz
+   33   94248.261ms ACMD42 SET_CLR_CARD_DETECT    arg=00000000  -> R1  00000920  st=tran  clk=23.5MHz
+   34   94248.300ms  CMD13 SEND_STATUS            arg=db810000  -> R1  00000900  st=tran  clk=23.3MHz
+   35   94248.367ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=23.5MHz
+   36   94248.412ms ACMD51 SEND_SCR               arg=00000000  -> R1  00000920 +DAT0 block  st=tran  clk=22.2MHz  dph=1
+   37   94248.473ms  CMD6  SWITCH_FUNC            arg=00ffffff  -> R1  00000900 +DAT0 block  st=tran  clk=23.5MHz  dph=1
+   38   94566.287ms  CMD0  GO_IDLE_STATE          arg=00000000  -> (none)  st=idle  clk=379kHz  dph=2
+   39   94566.492ms  CMD8  SEND_IF_COND           arg=000001aa  -> R7  000001aa  st=idle  clk=380kHz
+   40   94566.848ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+   41   94567.203ms ACMD41 SD_SEND_OP_COND        arg=50100000  -> R3  00ff8000  st=idle  clk=379kHz
+   42   94568.560ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+   43   94568.915ms ACMD41 SD_SEND_OP_COND        arg=50100000  -> R3  00ff8000  st=idle  clk=380kHz
+   44   94570.272ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+   45   94570.630ms ACMD41 SD_SEND_OP_COND        arg=50100000  -> R3  c0ff8000  st=ready  clk=379kHz
+   46   94570.985ms  CMD2  ALL_SEND_CID           arg=00000000  -> R2  st=ident  clk=379kHz
+   47   94571.572ms  CMD3  SEND_RELATIVE_ADDR     arg=00000000  -> R6  db810500  st=stby  clk=379kHz
+   48   94571.927ms  CMD9  SEND_CSD               arg=db810000  -> R2  st=stby  clk=379kHz
+   49   94572.432ms  CMD7  SELECT_CARD            arg=db810000  -> R1b 00000700  st=tran  clk=22.2MHz
+   50   94572.474ms  CMD16 SET_BLOCKLEN           arg=00000200  -> R1  00000900  st=tran  clk=23.5MHz
+   51   94572.515ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=22.2MHz
+   52   94572.554ms ACMD42 SET_CLR_CARD_DETECT    arg=00000000  -> R1  00000920  st=tran  clk=23.5MHz
+   53   94572.594ms  CMD13 SEND_STATUS            arg=db810000  -> R1  00000900  st=tran  clk=23.5MHz
+   54   94572.733ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=22.2MHz
+   55   94572.778ms ACMD51 SEND_SCR               arg=00000000  -> R1  00000920 +DAT0 block  st=tran  clk=23.5MHz  dph=2
+   56   94572.840ms  CMD6  SWITCH_FUNC            arg=00ffffff  -> R1  00000900 +DAT0 block  st=tran  clk=23.5MHz  dph=2
+   57   94892.123ms  CMD0  GO_IDLE_STATE          arg=00000000  -> (none)  st=idle  clk=379kHz  dph=3
+   58   94892.328ms  CMD8  SEND_IF_COND           arg=000001aa  -> R7  000001aa  st=idle  clk=379kHz
+   59   94892.718ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=380kHz
+   60   94893.076ms ACMD41 SD_SEND_OP_COND        arg=50100000  -> R3  00ff8000  st=idle  clk=379kHz
+   61   94894.438ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+   62   94894.793ms ACMD41 SD_SEND_OP_COND        arg=50100000  -> R3  00ff8000  st=idle  clk=379kHz
+   63   94896.190ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+   64   94896.568ms ACMD41 SD_SEND_OP_COND        arg=50100000  -> R3  c0ff8000  st=ready  clk=380kHz
+   65   94896.926ms  CMD2  ALL_SEND_CID           arg=00000000  -> R2  st=ident  clk=379kHz
+   66   94897.516ms  CMD3  SEND_RELATIVE_ADDR     arg=00000000  -> R6  db810500  st=stby  clk=379kHz
+   67   94897.873ms  CMD9  SEND_CSD               arg=db810000  -> R2  st=stby  clk=379kHz
+   68   94898.352ms  CMD7  SELECT_CARD            arg=db810000  -> R1b 00000700  st=tran  clk=22.2MHz
+   69   94898.394ms  CMD16 SET_BLOCKLEN           arg=00000200  -> R1  00000900  st=tran  clk=23.3MHz
+   70   94898.433ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=22.2MHz
+   71   94898.480ms ACMD42 SET_CLR_CARD_DETECT    arg=00000000  -> R1  00000920  st=tran  clk=23.5MHz
+   72   94898.519ms  CMD13 SEND_STATUS            arg=db810000  -> R1  00000900  st=tran  clk=23.5MHz
+   73   94898.557ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=23.5MHz
+   74   94898.601ms ACMD51 SEND_SCR               arg=00000000  -> R1  00000920 +DAT0 block  st=tran  clk=23.3MHz  dph=3
+   75   94898.647ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=23.5MHz
+   76   94898.701ms ACMD13 SD_STATUS              arg=00000000  -> R1  00000920 +DAT0 block  st=tran  clk=23.5MHz  dph=3
+   77   94898.778ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=23.3MHz
+   78   94898.838ms ACMD13 SD_STATUS              arg=00000000  -> R1  00000920 +DAT0 block  st=tran  clk=22.2MHz  dph=3
+   79   95216.852ms  CMD0  GO_IDLE_STATE          arg=00000000  -> (none)  st=idle  clk=379kHz  dph=0
+   80   95217.057ms  CMD8  SEND_IF_COND           arg=000011aa  -> R7  000011aa [PCIe ACK]  st=idle  clk=379kHz
+   81  119331.478ms  CMD0  GO_IDLE_STATE          arg=00000000  -> (none)  st=idle  clk=379kHz  dph=1
+   82  119331.685ms  CMD8  SEND_IF_COND           arg=000001aa  -> R7  000001aa  st=idle  clk=379kHz
+   83  119332.151ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=380kHz
+   84  119332.514ms ACMD41 SD_SEND_OP_COND        arg=51100000  -> R3  00ff8000  st=idle  clk=379kHz
+   85  119333.879ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+   86  119334.237ms ACMD41 SD_SEND_OP_COND        arg=51100000  -> R3  00ff8000  st=idle  clk=380kHz
+   87  119335.605ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+   88  119335.962ms ACMD41 SD_SEND_OP_COND        arg=51100000  -> R3  c0ff8000  st=ready  clk=380kHz
+   89  119336.320ms  CMD2  ALL_SEND_CID           arg=00000000  -> R2  st=ident  clk=380kHz
+   90  119336.909ms  CMD3  SEND_RELATIVE_ADDR     arg=00000000  -> R6  db810500  st=stby  clk=379kHz
+   91  119337.275ms  CMD9  SEND_CSD               arg=db810000  -> R2  st=stby  clk=379kHz
+   92  119337.761ms  CMD7  SELECT_CARD            arg=db810000  -> R1b 00000700  st=tran  clk=23.5MHz
+   93  119337.803ms  CMD16 SET_BLOCKLEN           arg=00000200  -> R1  00000900  st=tran  clk=23.5MHz
+   94  119337.843ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=23.5MHz
+   95  119337.882ms ACMD42 SET_CLR_CARD_DETECT    arg=00000000  -> R1  00000920  st=tran  clk=22.2MHz
+   96  119337.929ms  CMD13 SEND_STATUS            arg=db810000  -> R1  00000900  st=tran  clk=23.5MHz
+   97  119337.969ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=23.5MHz
+   98  119338.014ms ACMD51 SEND_SCR               arg=00000000  -> R1  00000920 +DAT0 block  st=tran  clk=23.5MHz  dph=1
+   99  119338.077ms  CMD6  SWITCH_FUNC            arg=00ffffff  -> R1  00000900 +DAT0 block  st=tran  clk=23.5MHz  dph=1
+  100  119654.541ms  CMD0  GO_IDLE_STATE          arg=00000000  -> (none)  st=idle  clk=379kHz  dph=2
+  101  119654.775ms  CMD8  SEND_IF_COND           arg=000001aa  -> R7  000001aa  st=idle  clk=379kHz
+  102  119655.211ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=380kHz
+  103  119655.835ms ACMD41 SD_SEND_OP_COND        arg=51100000  -> R3  00ff8000  st=idle  clk=379kHz
+  104  119657.258ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+  105  119657.634ms ACMD41 SD_SEND_OP_COND        arg=51100000  -> R3  00ff8000  st=idle  clk=379kHz
+  106  119659.015ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+  107  119659.388ms ACMD41 SD_SEND_OP_COND        arg=51100000  -> R3  c0ff8000  st=ready  clk=379kHz
+  108  119659.786ms  CMD2  ALL_SEND_CID           arg=00000000  -> R2  st=ident  clk=380kHz
+  109  119660.406ms  CMD3  SEND_RELATIVE_ADDR     arg=00000000  -> R6  db810500  st=stby  clk=379kHz
+  110  119660.788ms  CMD9  SEND_CSD               arg=db810000  -> R2  st=stby  clk=379kHz
+  111  119661.321ms  CMD7  SELECT_CARD            arg=db810000  -> R1b 00000700  st=tran  clk=23.5MHz
+  112  119661.396ms  CMD16 SET_BLOCKLEN           arg=00000200  -> R1  00000900  st=tran  clk=22.2MHz
+  113  119661.467ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=23.3MHz
+  114  119661.539ms ACMD42 SET_CLR_CARD_DETECT    arg=00000000  -> R1  00000920  st=tran  clk=23.5MHz
+  115  119661.617ms  CMD13 SEND_STATUS            arg=db810000  -> R1  00000900  st=tran  clk=23.5MHz
+  116  119661.685ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=23.5MHz
+  117  119661.762ms ACMD51 SEND_SCR               arg=00000000  -> R1  00000920 +DAT0 block  st=tran  clk=22.0MHz  dph=2
+-> R1  00000900 +DAT0 block  st=tran  clk=22.2MHz  dph=2
+  119  119977.905ms  CMD0  GO_IDLE_STATE          arg=00000000  -> (none)  st=idle  clk=379kHz  dph=3
+  120  119978.110ms  CMD8  SEND_IF_COND           arg=000001aa  -> R7  000001aa  st=idle  clk=379kHz
+  121  119978.465ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+  122  119978.820ms ACMD41 SD_SEND_OP_COND        arg=50100000  -> R3  00ff8000  st=idle  clk=380kHz
+  123  119980.178ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+  124  119980.533ms ACMD41 SD_SEND_OP_COND        arg=50100000  -> R3  00ff8000  st=idle  clk=379kHz
+  125  119981.890ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=380kHz
+  126  119982.247ms ACMD41 SD_SEND_OP_COND        arg=50100000  -> R3  c0ff8000  st=ready  clk=380kHz
+  127  119982.606ms  CMD2  ALL_SEND_CID           arg=00000000  -> R2  st=ident  clk=379kHz
+  128  119983.195ms  CMD3  SEND_RELATIVE_ADDR     arg=00000000  -> R6  db810500  st=stby  clk=379kHz
+  129  119983.550ms  CMD9  SEND_CSD               arg=db810000  -> R2  st=stby  clk=379kHz
+  130  119984.039ms  CMD7  SELECT_CARD            arg=db810000  -> R1b 00000700  st=tran  clk=22.2MHz
+  131  119984.081ms  CMD16 SET_BLOCKLEN           arg=00000200  -> R1  00000900  st=tran  clk=23.5MHz
+  132  119984.120ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=23.5MHz
+  133  119984.158ms ACMD42 SET_CLR_CARD_DETECT    arg=00000000  -> R1  00000920  st=tran  clk=23.5MHz
+  134  119984.198ms  CMD13 SEND_STATUS            arg=db810000  -> R1  00000900  st=tran  clk=23.3MHz
+  135  119984.237ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=23.5MHz
+  136  119984.282ms ACMD51 SEND_SCR               arg=00000000  -> R1  00000920 +DAT0 block  st=tran  clk=23.5MHz  dph=3
+  137  119984.352ms  CMD6  SWITCH_FUNC            arg=00ffffff  -> R1  00000900 +DAT0 block  st=tran  clk=22.2MHz  dph=3
+  138  120300.093ms  CMD0  GO_IDLE_STATE          arg=00000000  -> (none)  st=idle  clk=379kHz  dph=0
+  139  120300.298ms  CMD8  SEND_IF_COND           arg=000001aa  -> R7  000001aa  st=idle  clk=380kHz
+  140  120300.655ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+  141  120301.011ms ACMD41 SD_SEND_OP_COND        arg=50100000  -> R3  00ff8000  st=idle  clk=379kHz
+  142  120302.405ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+  143  120302.831ms ACMD41 SD_SEND_OP_COND        arg=50100000  -> R3  00ff8000  st=idle  clk=380kHz
+  144  120304.191ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+  145  120304.546ms ACMD41 SD_SEND_OP_COND        arg=50100000  -> R3  c0ff8000  st=ready  clk=379kHz
+  146  120304.901ms  CMD2  ALL_SEND_CID           arg=00000000  -> R2  st=ident  clk=379kHz
+  147  120305.516ms  CMD3  SEND_RELATIVE_ADDR     arg=00000000  -> R6  db810500  st=stby  clk=379kHz
+  148  120305.979ms  CMD9  SEND_CSD               arg=db810000  -> R2  st=stby  clk=379kHz
+  149  120306.888ms  CMD7  SELECT_CARD            arg=db810000  -> R1b 00000700  st=tran  clk=22.2MHz
+  150  120306.931ms  CMD16 SET_BLOCKLEN           arg=00000200  -> R1  00000900  st=tran  clk=23.3MHz
+  151  120307.353ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=22.2MHz
+  152  120307.393ms ACMD42 SET_CLR_CARD_DETECT    arg=00000000  -> R1  00000920  st=tran  clk=23.5MHz
+  153  120307.521ms  CMD13 SEND_STATUS            arg=db810000  -> R1  00000900  st=tran  clk=23.5MHz
+  154  120307.560ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=22.2MHz
+  155  120307.675ms ACMD51 SEND_SCR               arg=00000000  -> R1  00000920 +DAT0 block  st=tran  clk=23.3MHz  dph=0
+  156  120307.721ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=23.5MHz
+  157  120307.775ms ACMD13 SD_STATUS              arg=00000000  -> R1  00000920 +DAT0 block  st=tran  clk=23.5MHz  dph=0
+  158  120307.852ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=23.5MHz
+  159  120307.971ms ACMD13 SD_STATUS              arg=00000000  -> R1  00000920 +DAT0 block  st=tran  clk=22.2MHz  dph=0
+  160  120624.250ms  CMD0  GO_IDLE_STATE          arg=00000000  -> (none)  st=idle  clk=379kHz  dph=1
+  161  120624.455ms  CMD8  SEND_IF_COND           arg=000011aa  -> R7  000011aa [PCIe ACK]  st=idle  clk=379kHz
+> 
+===== log =====
+log
+this boot: 162 commands, PCIe acknowledged
+    0   93915.243ms  CMD0  GO_IDLE_STATE          arg=00000000  -> (none)  st=idle  clk=379kHz  dph=0
+    1   93915.450ms  CMD8  SEND_IF_COND           arg=000001aa  -> R7  000001aa  st=idle  clk=380kHz
+    2   93915.806ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=380kHz
+    3   93916.161ms ACMD41 SD_SEND_OP_COND        arg=51100000  -> R3  00ff8000  st=idle  clk=379kHz
+    4   93917.544ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+    5   93917.902ms ACMD41 SD_SEND_OP_COND        arg=51100000  -> R3  00ff8000  st=idle  clk=379kHz
+    6   93919.262ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+    7   93919.619ms ACMD41 SD_SEND_OP_COND        arg=51100000  -> R3  c0ff8000  st=ready  clk=379kHz
+    8   93919.975ms  CMD2  ALL_SEND_CID           arg=00000000  -> R2  st=ident  clk=379kHz
+    9   93920.564ms  CMD3  SEND_RELATIVE_ADDR     arg=00000000  -> R6  db810500  st=stby  clk=379kHz
+   10   93920.919ms  CMD9  SEND_CSD               arg=db810000  -> R2  st=stby  clk=379kHz
+   11   93921.406ms  CMD7  SELECT_CARD            arg=db810000  -> R1b 00000700  st=tran  clk=23.5MHz
+   12   93921.448ms  CMD16 SET_BLOCKLEN           arg=00000200  -> R1  00000900  st=tran  clk=23.5MHz
+   13   93921.487ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=23.5MHz
+   14   93921.527ms ACMD42 SET_CLR_CARD_DETECT    arg=00000000  -> R1  00000920  st=tran  clk=23.5MHz
+   15   93921.567ms  CMD13 SEND_STATUS            arg=db810000  -> R1  00000900  st=tran  clk=23.5MHz
+   16   93921.612ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=23.5MHz
+   17   93921.656ms ACMD51 SEND_SCR               arg=00000000  -> R1  00000920 +DAT0 block  st=tran  clk=23.5MHz  dph=0
+   18   93921.718ms  CMD6  SWITCH_FUNC            arg=00ffffff  -> R1  00000900 +DAT0 block  st=tran  clk=23.5MHz  dph=0
+   19   94241.155ms  CMD0  GO_IDLE_STATE          arg=00000000  -> (none)  st=idle  clk=379kHz  dph=1
+   20   94241.360ms  CMD8  SEND_IF_COND           arg=000001aa  -> R7  000001aa  st=idle  clk=379kHz
+   21   94241.715ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+   22   94242.070ms ACMD41 SD_SEND_OP_COND        arg=51100000  -> R3  00ff8000  st=idle  clk=379kHz
+   23   94243.435ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+   24   94243.793ms ACMD41 SD_SEND_OP_COND        arg=51100000  -> R3  00ff8000  st=idle  clk=379kHz
+   25   94245.863ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=380kHz
+   26   94246.218ms ACMD41 SD_SEND_OP_COND        arg=51100000  -> R3  c0ff8000  st=ready  clk=379kHz
+   27   94246.573ms  CMD2  ALL_SEND_CID           arg=00000000  -> R2  st=ident  clk=379kHz
+   28   94247.162ms  CMD3  SEND_RELATIVE_ADDR     arg=00000000  -> R6  db810500  st=stby  clk=379kHz
+   29   94247.518ms  CMD9  SEND_CSD               arg=db810000  -> R2  st=stby  clk=379kHz
+   30   94248.140ms  CMD7  SELECT_CARD            arg=db810000  -> R1b 00000700  st=tran  clk=23.5MHz
+   31   94248.183ms  CMD16 SET_BLOCKLEN           arg=00000200  -> R1  00000900  st=tran  clk=22.2MHz
+   32   94248.222ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=22.2MHz
+   33   94248.261ms ACMD42 SET_CLR_CARD_DETECT    arg=00000000  -> R1  00000920  st=tran  clk=23.5MHz
+   34   94248.300ms  CMD13 SEND_STATUS            arg=db810000  -> R1  00000900  st=tran  clk=23.3MHz
+   35   94248.367ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=23.5MHz
+   36   94248.412ms ACMD51 SEND_SCR               arg=00000000  -> R1  00000920 +DAT0 block  st=tran  clk=22.2MHz  dph=1
+   37   94248.473ms  CMD6  SWITCH_FUNC            arg=00ffffff  -> R1  00000900 +DAT0 block  st=tran  clk=23.5MHz  dph=1
+   38   94566.287ms  CMD0  GO_IDLE_STATE          arg=00000000  -> (none)  st=idle  clk=379kHz  dph=2
+   39   94566.492ms  CMD8  SEND_IF_COND           arg=000001aa  -> R7  000001aa  st=idle  clk=380kHz
+   40   94566.848ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+   41   94567.203ms ACMD41 SD_SEND_OP_COND        arg=50100000  -> R3  00ff8000  st=idle  clk=379kHz
+   42   94568.560ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+   43   94568.915ms ACMD41 SD_SEND_OP_COND        arg=50100000  -> R3  00ff8000  st=idle  clk=380kHz
+   44   94570.272ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+   45   94570.630ms ACMD41 SD_SEND_OP_COND        arg=50100000  -> R3  c0ff8000  st=ready  clk=379kHz
+   46   94570.985ms  CMD2  ALL_SEND_CID           arg=00000000  -> R2  st=ident  clk=379kHz
+   47   94571.572ms  CMD3  SEND_RELATIVE_ADDR     arg=00000000  -> R6  db810500  st=stby  clk=379kHz
+   48   94571.927ms  CMD9  SEND_CSD               arg=db810000  -> R2  st=stby  clk=379kHz
+   49   94572.432ms  CMD7  SELECT_CARD            arg=db810000  -> R1b 00000700  st=tran  clk=22.2MHz
+   50   94572.474ms  CMD16 SET_BLOCKLEN           arg=00000200  -> R1  00000900  st=tran  clk=23.5MHz
+   51   94572.515ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=22.2MHz
+   52   94572.554ms ACMD42 SET_CLR_CARD_DETECT    arg=00000000  -> R1  00000920  st=tran  clk=23.5MHz
+   53   94572.594ms  CMD13 SEND_STATUS            arg=db810000  -> R1  00000900  st=tran  clk=23.5MHz
+   54   94572.733ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=22.2MHz
+   55   94572.778ms ACMD51 SEND_SCR               arg=00000000  -> R1  00000920 +DAT0 block  st=tran  clk=23.5MHz  dph=2
+   56   94572.840ms  CMD6  SWITCH_FUNC            arg=00ffffff  -> R1  00000900 +DAT0 block  st=tran  clk=23.5MHz  dph=2
+   57   94892.123ms  CMD0  GO_IDLE_STATE          arg=00000000  -> (none)  st=idle  clk=379kHz  dph=3
+   58   94892.328ms  CMD8  SEND_IF_COND           arg=000001aa  -> R7  000001aa  st=idle  clk=379kHz
+   59   94892.718ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=380kHz
+   60   94893.076ms ACMD41 SD_SEND_OP_COND        arg=50100000  -> R3  00ff8000  st=idle  clk=379kHz
+   61   94894.438ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+   62   94894.793ms ACMD41 SD_SEND_OP_COND        arg=50100000  -> R3  00ff8000  st=idle  clk=379kHz
+   63   94896.190ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+   64   94896.568ms ACMD41 SD_SEND_OP_COND        arg=50100000  -> R3  c0ff8000  st=ready  clk=380kHz
+   65   94896.926ms  CMD2  ALL_SEND_CID           arg=00000000  -> R2  st=ident  clk=379kHz
+   66   94897.516ms  CMD3  SEND_RELATIVE_ADDR     arg=00000000  -> R6  db810500  st=stby  clk=379kHz
+   67   94897.873ms  CMD9  SEND_CSD               arg=db810000  -> R2  st=stby  clk=379kHz
+   68   94898.352ms  CMD7  SELECT_CARD            arg=db810000  -> R1b 00000700  st=tran  clk=22.2MHz
+   69   94898.394ms  CMD16 SET_BLOCKLEN           arg=00000200  -> R1  00000900  st=tran  clk=23.3MHz
+   70   94898.433ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=22.2MHz
+   71   94898.480ms ACMD42 SET_CLR_CARD_DETECT    arg=00000000  -> R1  00000920  st=tran  clk=23.5MHz
+   72   94898.519ms  CMD13 SEND_STATUS            arg=db810000  -> R1  00000900  st=tran  clk=23.5MHz
+   73   94898.557ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=23.5MHz
+   74   94898.601ms ACMD51 SEND_SCR               arg=00000000  -> R1  00000920 +DAT0 block  st=tran  clk=23.3MHz  dph=3
+   75   94898.647ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=23.5MHz
+   76   94898.701ms ACMD13 SD_STATUS              arg=00000000  -> R1  00000920 +DAT0 block  st=tran  clk=23.5MHz  dph=3
+   77   94898.778ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=23.3MHz
+   78   94898.838ms ACMD13 SD_STATUS              arg=00000000  -> R1  00000920 +DAT0 block  st=tran  clk=22.2MHz  dph=3
+   79   95216.852ms  CMD0  GO_IDLE_STATE          arg=00000000  -> (none)  st=idle  clk=379kHz  dph=0
+   80   95217.057ms  CMD8  SEND_IF_COND           arg=000011aa  -> R7  000011aa [PCIe ACK]  st=idle  clk=379kHz
+   81  119331.478ms  CMD0  GO_IDLE_STATE          arg=00000000  -> (none)  st=idle  clk=379kHz  dph=1
+   82  119331.685ms  CMD8  SEND_IF_COND           arg=000001aa  -> R7  000001aa  st=idle  clk=379kHz
+   83  119332.151ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=380kHz
+   84  119332.514ms ACMD41 SD_SEND_OP_COND        arg=51100000  -> R3  00ff8000  st=idle  clk=379kHz
+   85  119333.879ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+   86  119334.237ms ACMD41 SD_SEND_OP_COND        arg=51100000  -> R3  00ff8000  st=idle  clk=380kHz
+   87  119335.605ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+   88  119335.962ms ACMD41 SD_SEND_OP_COND        arg=51100000  -> R3  c0ff8000  st=ready  clk=380kHz
+   89  119336.320ms  CMD2  ALL_SEND_CID           arg=00000000  -> R2  st=ident  clk=380kHz
+   90  119336.909ms  CMD3  SEND_RELATIVE_ADDR     arg=00000000  -> R6  db810500  st=stby  clk=379kHz
+   91  119337.275ms  CMD9  SEND_CSD               arg=db810000  -> R2  st=stby  clk=379kHz
+   92  119337.761ms  CMD7  SELECT_CARD            arg=db810000  -> R1b 00000700  st=tran  clk=23.5MHz
+   93  119337.803ms  CMD16 SET_BLOCKLEN           arg=00000200  -> R1  00000900  st=tran  clk=23.5MHz
+   94  119337.843ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=23.5MHz
+   95  119337.882ms ACMD42 SET_CLR_CARD_DETECT    arg=00000000  -> R1  00000920  st=tran  clk=22.2MHz
+   96  119337.929ms  CMD13 SEND_STATUS            arg=db810000  -> R1  00000900  st=tran  clk=23.5MHz
+   97  119337.969ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=23.5MHz
+   98  119338.014ms ACMD51 SEND_SCR               arg=00000000  -> R1  00000920 +DAT0 block  st=tran  clk=23.5MHz  dph=1
+   99  119338.077ms  CMD6  SWITCH_FUNC            arg=00ffffff  -> R1  00000900 +DAT0 block  st=tran  clk=23.5MHz  dph=1
+  100  119654.541ms  CMD0  GO_IDLE_STATE          arg=00000000  -> (none)  st=idle  clk=379kHz  dph=2
+  101  119654.775ms  CMD8  SEND_IF_COND           arg=000001aa  -> R7  000001aa  st=idle  clk=379kHz
+  102  119655.211ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=380kHz
+  103  119655.835ms ACMD41 SD_SEND_OP_COND        arg=51100000  -> R3  00ff8000  st=idle  clk=379kHz
+  104  119657.258ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+  105  119657.634ms ACMD41 SD_SEND_OP_COND        arg=51100000  -> R3  00ff8000  st=idle  clk=379kHz
+  106  119659.015ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+  107  119659.388ms ACMD41 SD_SEND_OP_COND        arg=51100000  -> R3  c0ff8000  st=ready  clk=379kHz
+  108  119659.786ms  CMD2  ALL_SEND_CID           arg=00000000  -> R2  st=ident  clk=380kHz
+  109  119660.406ms  CMD3  SEND_RELATIVE_ADDR     arg=00000000  -> R6  db810500  st=stby  clk=379kHz
+  110  119660.788ms  CMD9  SEND_CSD               arg=db810000  -> R2  st=stby  clk=379kHz
+  111  119661.321ms  CMD7  SELECT_CARD            arg=db810000  -> R1b 00000700  st=tran  clk=23.5MHz
+  112  119661.396ms  CMD16 SET_BLOCKLEN           arg=00000200  -> R1  00000900  st=tran  clk=22.2MHz
+  113  119661.467ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=23.3MHz
+  114  119661.539ms ACMD42 SET_CLR_CARD_DETECT    arg=00000000  -> R1  00000920  st=tran  clk=23.5MHz
+  115  119661.617ms  CMD13 SEND_STATUS            arg=db810000  -> R1  00000900  st=tran  clk=23.5MHz
+  116  119661.685ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=23.5MHz
+  117  119661.762ms ACMD51 SEND_SCR               arg=00000000  -> R1  00000920 +DAT0 block  st=tran  clk=22.0MHz  dph=2
+  118  119661.856ms  CMD6  SWITCH_FUNC            arg=00ffffff  -> R1  00000900 +DAT0 block  st=tran  clk=22.2MHz  dph=2
+  119  119977.905ms  CMD0  GO_IDLE_STATE          arg=00000000  -> (none)  st=idle  clk=379kHz  dph=3
+  120  119978.110ms  CMD8  SEND_IF_COND           arg=000001aa  -> R7  000001aa  st=idle  clk=379kHz
+  121  119978.465ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+  122  119978.820ms ACMD41 SD_SEND_OP_COND        arg=50100000  -> R3  00ff8000  st=idle  clk=380kHz
+  123  119980.178ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+  124  119980.533ms ACMD41 SD_SEND_OP_COND        arg=50100000  -> R3  00ff8000  st=idle  clk=379kHz
+  125  119981.890ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=380kHz
+  126  119982.247ms ACMD41 SD_SEND_OP_COND        arg=50100000  -> R3  c0ff8000  st=ready  clk=380kHz
+  127  119982.606ms  CMD2  ALL_SEND_CID           arg=00000000  -> R2  st=ident  clk=379kHz
+  128  119983.195ms  CMD3  SEND_RELATIVE_ADDR     arg=00000000  -> R6  db810500  st=stby  clk=379kHz
+  129  119983.550ms  CMD9  SEND_CSD               arg=db810000  -> R2  st=stby  clk=379kHz
+  130  119984.039ms  CMD7  SELECT_CARD            arg=db810000  -> R1b 00000700  st=tran  clk=22.2MHz
+  131  119984.081ms  CMD16 SET_BLOCKLEN           arg=00000200  -> R1  00000900  st=tran  clk=23.5MHz
+  132  119984.120ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=23.5MHz
+  133  119984.158ms ACMD42 SET_CLR_CARD_DETECT    arg=00000000  -> R1  00000920  st=tran  clk=23.5MHz
+  134  119984.198ms  CMD13 SEND_STATUS            arg=db810000  -> R1  00000900  st=tran  clk=23.3MHz
+  135  119984.237ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=23.5MHz
+  136  119984.282ms ACMD51 SEND_SCR               arg=00000000  -> R1  00000920 +DAT0 block  st=tran  clk=23.5MHz  dph=3
+  137  119984.352ms  CMD6  SWITCH_FUNC            arg=00ffffff  -> R1  00000900 +DAT0 block  st=tran  clk=22.2MHz  dph=3
+  138  120300.093ms  CMD0  GO_IDLE_STATE          arg=00000000  -> (none)  st=idle  clk=379kHz  dph=0
+  139  120300.298ms  CMD8  SEND_IF_COND           arg=000001aa  -> R7  000001aa  st=idle  clk=380kHz
+  140  120300.655ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+  141  120301.011ms ACMD41 SD_SEND_OP_COND        arg=50100000  -> R3  00ff8000  st=idle  clk=379kHz
+  142  120302.405ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+  143  120302.831ms ACMD41 SD_SEND_OP_COND        arg=50100000  -> R3  00ff8000  st=idle  clk=380kHz
+  144  120304.191ms  CMD55 APP_CMD                arg=00000000  -> R1  00000120  st=idle  clk=379kHz
+  145  120304.546ms ACMD41 SD_SEND_OP_COND        arg=50100000  -> R3  c0ff8000  st=ready  clk=379kHz
+  146  120304.901ms  CMD2  ALL_SEND_CID           arg=00000000  -> R2  st=ident  clk=379kHz
+  147  120305.516ms  CMD3  SEND_RELATIVE_ADDR     arg=00000000  -> R6  db810500  st=stby  clk=379kHz
+  148  120305.979ms  CMD9  SEND_CSD               arg=db810000  -> R2  st=stby  clk=379kHz
+  149  120306.888ms  CMD7  SELECT_CARD            arg=db810000  -> R1b 00000700  st=tran  clk=22.2MHz
+  150  120306.931ms  CMD16 SET_BLOCKLEN           arg=00000200  -> R1  00000900  st=tran  clk=23.3MHz
+  151  120307.353ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=22.2MHz
+  152  120307.393ms ACMD42 SET_CLR_CARD_DETECT    arg=00000000  -> R1  00000920  st=tran  clk=23.5MHz
+  153  120307.521ms  CMD13 SEND_STATUS            arg=db810000  -> R1  00000900  st=tran  clk=23.5MHz
+  154  120307.560ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=22.2MHz
+  155  120307.675ms ACMD51 SEND_SCR               arg=00000000  -> R1  00000920 +DAT0 block  st=tran  clk=23.3MHz  dph=0
+  156  120307.721ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=23.5MHz
+  157  120307.775ms ACMD13 SD_STATUS              arg=00000000  -> R1  00000920 +DAT0 block  st=tran  clk=23.5MHz  dph=0
+  158  120307.852ms  CMD55 APP_CMD                arg=db810000  -> R1  00000920  st=tran  clk=23.5MHz
+  159  120307.971ms ACMD13 SD_STATUS              arg=00000000  -> R1  00000920 +DAT0 block  st=tran  clk=22.2MHz  dph=0
+  160  120624.250ms  CMD0  GO_IDLE_STATE          arg=00000000  -> (none)  st=idle  clk=379kHz  dph=1
+  161  120624.455ms  CMD8  SEND_IF_COND           arg=000011aa  -> R7  000011aa [PCIe ACK]  st=idle  clk=379kHz
+> 

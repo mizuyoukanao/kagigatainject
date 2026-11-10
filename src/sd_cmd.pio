@@ -1,0 +1,179 @@
+; SD-mode CMD line, card side, in one state machine.
+;
+; Pins: IN base = CMD, so "pin 1" is CLK (board.h checks CLK == CMD + 1).
+;       OUT/SET/side-set base = CMD (1 pin, side-set drives its pindir).
+;       JMP pin = CMD.
+; Shift: IN  left, autopush at 32;  OUT left, autopull at 32.
+;
+; Per command:
+;  1. Wait for a start bit (CMD low at a CLK rising edge) and shift in the
+;     48-bit frame, sampled on rising edges. Pushes two words: bits 47..16,
+;     then bits 15..0 in the low half.
+;  2. Pull a header from the CPU: 0 = no response, otherwise (bits - 1).
+;     The CPU may queue it early (e.g. for CMD0, right after the first word).
+;  3. Shift the response out MSB first; autopull fetches the data words.
+;  4. Release CMD after the end bit has been sampled.
+;
+; Launch phase. As written, each bit is launched from a CLK falling edge,
+; as the spec draws it; with the 2-cycle input synchroniser it reaches the
+; pin about 22 ns after that edge. sd_phase.c can flip the polarity of every
+; WAIT from `launch` on (launch from the rising edge instead) and bypass the
+; synchroniser on CLK (about 9 ns instead of 22), giving four launch phases.
+; On the Switch 2 at ~24 MHz the falling-edge form is the one that works for
+; CMD: launched from the rising edge, R1 responses after CMD7 were rejected.
+; The WAITs from `launch` on must therefore be correct in both polarities; the
+; pre-wait is three edges so that NCR >= 2 holds either way.
+;
+; Autopull and the explicit PULL of the header work together because, with
+; autopull on, PULL is a no-op while the OSR is full: a header that autopull
+; already fetched is kept, and the leftover bits of a response that was not
+; a multiple of 32 bits long (48, 136) are discarded by the PULL.
+;
+; The CPU must answer within NCR max (64 clocks) and, for commands without a
+; response, before the next command starts (NCC min, 8 clocks).
+;
+; The bit loops are 4 instructions, so the SD clock may go up to about
+; clk_sys / 6 (25 MHz at 150 MHz).
+
+.program sd_cmd
+.side_set 1 opt pindirs
+.wrap_target
+release:
+    set pindirs, 0
+idle:
+    wait 0 pin 1
+    wait 1 pin 1
+    jmp pin idle            ; CMD high: no start bit yet
+    in pins, 1              ; start bit
+    set x, 30
+rx0:                        ; 31 more bits -> first word (autopush)
+    wait 0 pin 1
+    wait 1 pin 1
+    in pins, 1
+    jmp x-- rx0
+    set x, 15
+rx1:                        ; last 16 bits
+    wait 0 pin 1
+    wait 1 pin 1
+    in pins, 1
+    jmp x-- rx1
+    push block
+
+    pull block              ; header from the CPU
+    out x, 32
+    jmp !x release          ; no response
+public launch:              ; from here on, WAIT polarity = launch phase
+    wait 0 pin 1            ; three edges: NCR >= 2 in either polarity
+    wait 1 pin 1
+    wait 0 pin 1
+send:
+    wait 1 pin 1
+    wait 0 pin 1
+    out pins, 1     side 1  ; drive from the first bit on
+    jmp x-- send
+    wait 1 pin 1            ; host samples the end bit
+    wait 0 pin 1
+.wrap
+
+; DAT0 data blocks (CMD6 status, SCR, SD status), card side, 1-bit bus.
+;
+; Pins: IN base = CLK ("pin 0"). OUT/side-set base = DAT0 (side-set drives
+;       its pindir, so DAT0 is only driven while a block goes out).
+; Shift: OUT left, autopull at 32. Fed by DMA, see sd_dat_t in sd_proto.h:
+;   word 0: clocks to wait before the start bit, minus one
+;   word 1: frame bits, minus one
+;   then the frame (start bit, payload, CRC16, end bit), MSB first.
+; Launch phase as for sd_cmd: falling edge as written, the WAITs from `launch`
+; on flipped for the rising edge. The leftover bits of the last word are
+; dropped by the PULL, which is a no-op only when autopull has already
+; fetched the next header (same trick as sd_cmd).
+
+.program sd_dat
+.side_set 1 opt pindirs
+.wrap_target
+public idle:
+    pull block      side 0  ; DAT0 released while idle
+    out y, 32
+delay:
+    wait 0 pin 0
+    wait 1 pin 0
+    jmp y-- delay
+    out x, 32
+public launch:
+send_dat:
+    wait 1 pin 0
+    wait 0 pin 0
+    out pins, 1     side 1
+    jmp x-- send_dat
+    wait 1 pin 0            ; host samples the end bit
+    wait 0 pin 0
+.wrap
+
+; Self-test only (console `selftest`, with the board out of any slot): plays
+; the host. Drives CLK by side-set and samples DAT0 at each rising edge, as
+; seen through the input synchroniser. 6 cycles per clock: 25 MHz at
+; clk_sys / 1. IN shifts left with autopush at 32, read out by DMA.
+
+.program sd_selftest_host
+.side_set 1
+.wrap_target
+    nop             side 0 [2]
+    in pins, 1      side 1 [2]
+.wrap
+
+% c-sdk {
+static inline void sd_cmd_program_init(PIO pio, uint sm, uint offset,
+                                       uint pin_cmd) {
+    pio_sm_config c = sd_cmd_program_get_default_config(offset);
+    sm_config_set_in_pins(&c, pin_cmd);
+    sm_config_set_out_pins(&c, pin_cmd, 1);
+    sm_config_set_set_pins(&c, pin_cmd, 1);
+    sm_config_set_sideset_pins(&c, pin_cmd);
+    sm_config_set_jmp_pin(&c, pin_cmd);
+    sm_config_set_in_shift(&c, false, true, 32);
+    sm_config_set_out_shift(&c, false, true, 32);
+    sm_config_set_clkdiv_int_frac8(&c, 1, 0);
+
+    pio_sm_set_pins_with_mask(pio, sm, 1u << pin_cmd, 1u << pin_cmd);
+    pio_sm_set_consecutive_pindirs(pio, sm, pin_cmd, 1, false);
+    pio_gpio_init(pio, pin_cmd);
+    pio_gpio_init(pio, pin_cmd + 1);
+
+    pio_sm_init(pio, sm, offset, &c);
+    pio_sm_set_enabled(pio, sm, true);
+}
+
+static inline void sd_dat_program_init(PIO pio, uint sm, uint offset,
+                                       uint pin_dat0, uint pin_clk) {
+    pio_sm_config c = sd_dat_program_get_default_config(offset);
+    sm_config_set_in_pins(&c, pin_clk);
+    sm_config_set_out_pins(&c, pin_dat0, 1);
+    sm_config_set_sideset_pins(&c, pin_dat0);
+    sm_config_set_out_shift(&c, false, true, 32);
+    sm_config_set_clkdiv_int_frac8(&c, 1, 0);
+
+    pio_sm_set_pins_with_mask(pio, sm, 1u << pin_dat0, 1u << pin_dat0);
+    pio_sm_set_pindirs_with_mask(pio, sm, 0, 1u << pin_dat0);
+    pio_gpio_init(pio, pin_dat0);
+
+    pio_sm_init(pio, sm, offset, &c);
+    pio_sm_set_enabled(pio, sm, true);
+}
+
+// Takes over the CLK pin; the caller gives it back afterwards. Not started.
+static inline void sd_selftest_host_init(PIO pio, uint sm, uint offset,
+                                         uint pin_clk, uint pin_dat0,
+                                         float clkdiv) {
+    pio_sm_config c = sd_selftest_host_program_get_default_config(offset);
+    sm_config_set_in_pins(&c, pin_dat0);
+    sm_config_set_sideset_pins(&c, pin_clk);
+    sm_config_set_in_shift(&c, false, true, 32);
+    sm_config_set_fifo_join(&c, PIO_FIFO_JOIN_RX);
+    sm_config_set_clkdiv(&c, clkdiv);
+
+    pio_sm_set_pins_with_mask(pio, sm, 0, 1u << pin_clk);
+    pio_sm_set_pindirs_with_mask(pio, sm, 1u << pin_clk, 1u << pin_clk);
+    pio_gpio_init(pio, pin_clk);
+    pio_sm_init(pio, sm, offset, &c);
+}
+%}

@@ -1,0 +1,16 @@
+selftest run
+selftest: DAT0 loopback, CLK from pio2, DAT0 read back at the pin
+  25MHz   dph=0:  SCR(8B) ok  SSR(64B) ok  pattern(64B) ok  zeros(64B) ok
+  25MHz   dph=1:  SCR(8B) ok  SSR(64B) ok  pattern(64B) ok  zeros(64B) ok
+  25MHz   dph=2:  SCR(8B) ok  SSR(64B) ok  pattern(64B) ok  zeros(64B) ok
+  25MHz   dph=3:  SCR(8B) ok  SSR(64B) ok  pattern(64B) ok  zeros(64B) ok
+  12.5MHz dph=0:  SCR(8B) ok  SSR(64B) ok  pattern(64B) ok  zeros(64B) ok
+  12.5MHz dph=1:  SCR(8B) ok  SSR(64B) ok  pattern(64B) ok  zeros(64B) ok
+  12.5MHz dph=2:  SCR(8B) ok  SSR(64B) ok  pattern(64B) ok  zeros(64B) ok
+  12.5MHz dph=3:  SCR(8B) ok  SSR(64B) ok  pattern(64B) ok  zeros(64B) ok
+  400kHz  dph=0:  SCR(8B) ok  SSR(64B) ok  pattern(64B) ok  zeros(64B) ok
+  400kHz  dph=1:  SCR(8B) ok  SSR(64B) ok  pattern(64B) ok  zeros(64B) ok
+  400kHz  dph=2:  SCR(8B) ok  SSR(64B) ok  pattern(64B) ok  zeros(64B) ok
+  400kHz  dph=3:  SCR(8B) ok  SSR(64B) ok  pattern(64B) ok  zeros(64B) ok
+selftest: all blocks read back intact
+> 
