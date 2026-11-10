@@ -39,7 +39,7 @@ Switch 2 ──(PCIe)──────▶ M.2 SSD       : アダプタが接続
 | SSD | 結果 |
 |---|---|
 | WD PC SN530 512GB（SDBPNPZ-512G） | ✗ 「SDカードにアクセスできませんでした」 |
-| 別の M.2 SSD（デモ写真のもの） | ✓ 正しく認識 |
+| WD PC SN740（デモ写真のもの） | ✓ 正しく認識 |
 
 どちらの SSD でも、KagigataDisk 側のやり取り（PCIe の問い合わせと応答）は同じように成功していました。認識されるかどうかは SSD 側で決まっているようです。
 
@@ -119,6 +119,12 @@ cmake --build build
 ```
 
 できあがった `build/kagigatainject.uf2` を、上と同じ手順で書き込みます。仕組みや検証の方法は [技術資料](docs/TECHNICAL.md) を見てください。
+
+## ライセンス
+
+[MIT License](LICENSE) です。
+
+`pico_sdk_import.cmake` は Raspberry Pi Pico SDK からのコピーで、ファイル内に記載のとおり BSD 3-Clause License です。
 
 ## 謝辞
 
